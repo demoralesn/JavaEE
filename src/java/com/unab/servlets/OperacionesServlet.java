@@ -38,7 +38,7 @@ public class OperacionesServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet OperacionesServlet</title>");            
+            out.println("<title>Servlet OperacionesServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet OperacionesServlet at " + request.getContextPath() + "</h1>");
@@ -73,30 +73,33 @@ public class OperacionesServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Map <String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<String, Object>();
 
-        Integer num1 = Integer.parseInt(request.getParameter("num1"));
-        Integer num2 = Integer.parseInt(request.getParameter("num2"));
+        Double num1 = Double.parseDouble(request.getParameter("num1"));
+        Double num2 = Double.parseDouble(request.getParameter("num2"));
         Integer operacion = Integer.parseInt(request.getParameter("operacion"));
-        Integer resultado = num1 + num2;
-        
+        Double resultado = num1 + num2;
+
         switch (operacion) {
-            case 1:  resultado = num1 + num2;
-                     break;
-            case 2:  resultado = num1 - num2;
-                     break;
-            case 3:  resultado = num1 * num2;
-                     break;
-            case 4:  resultado = num1 / num2;
-                     break;
+            case 1:
+                resultado = num1 + num2;
+                break;
+            case 2:
+                resultado = num1 - num2;
+                break;
+            case 3:
+                resultado = num1 * num2;
+                break;
+            case 4:
+                resultado = num1 / num2;
+                break;
         }
-        
         map.put("resultado", resultado);
-        
+
         respuesta(response, map);
     }
-    
-    private void respuesta(HttpServletResponse response, Map<String, Object> map) throws IOException{
+
+    private void respuesta(HttpServletResponse response, Map<String, Object> map) throws IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(new Gson().toJson(map));
