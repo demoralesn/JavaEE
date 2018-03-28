@@ -14,13 +14,13 @@
                 <tr>
                     <td>
                         <div class="Input">
-                            <input type="text" id="num1" name="num1" class="Input-text" placeholder="Ingresa numero 2" />
+                            <input type="text" id="num1" name="num1" class="Input-text number-only" placeholder="Ingresa numero 1" />
                             <label for="num1" class="Input-label">Numero 1</label>
                         </div>
                     </td>
                     <td>
                         <div class="Input">
-                            <input type="text" id="num2" name="num2" class="Input-text" placeholder="Ingresa numero 2" />
+                            <input type="text" id="num2" name="num2" class="Input-text number-only" placeholder="Ingresa numero 2" />
                             <label for="num2" class="Input-label">Numero 2</label>
                         </div>
                     </td>
